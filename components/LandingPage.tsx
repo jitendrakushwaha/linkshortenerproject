@@ -43,11 +43,7 @@ export function LandingPage() {
                 Get Started Free <ArrowRight className="h-4 w-4" />
               </Button>
             </SignUpButton>
-            <SignInButton mode="modal">
-              <Button size="lg" variant="outline">
-                Sign In
-              </Button>
-            </SignInButton>
+            
           </div>
 
           <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">

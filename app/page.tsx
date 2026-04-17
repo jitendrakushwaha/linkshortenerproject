@@ -1,13 +1,22 @@
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+'use client';
+
+import { useAuth } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { LandingPage } from '@/components/LandingPage';
 
-export default async function Home() {
-  const { userId } = await auth();
+export default function Home() {
+  const { userId, isLoaded } = useAuth();
+  const router = useRouter();
 
-  // Redirect authenticated users to dashboard
-  if (userId) {
-    redirect('/dashboard');
+  useEffect(() => {
+    if (isLoaded && userId) {
+      router.push('/dashboard');
+    }
+  }, [isLoaded, userId, router]);
+
+  if (isLoaded && userId) {
+    return null;
   }
 
   return <LandingPage />;

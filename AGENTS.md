@@ -49,6 +49,7 @@ This document serves as the primary index for LLM agent coding standards and gui
 6. **Tailwind for styling** - avoid inline CSS or CSS modules
 7. **Path aliases** - use `@/*` for imports from project root
 8. **Consistent naming** - camelCase for functions/variables, PascalCase for components/types
+9. **⚠️ NEVER use `middleware.ts`** - it is deprecated in Next.js 16+. Use `proxy.ts` instead for request interception and middleware logic
 
 ## Before You Start
 
